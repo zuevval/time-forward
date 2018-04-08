@@ -1,9 +1,40 @@
+@font-face {
+	font-family: PFD;
+    src: url(fonts/PFD.ttf);		
+}
+
+
 body {
 	background: #76b852;
+	height: 100%;
+	margin: auto;
+	width: 100%;
 }
-.message {
-	color: white;
-	font-size: 24px;
-	margin: 20px;
+
+
+.header {
 	text-align: center;
+	font-size: 12px;
+	color: white;
+}
+h1 {
+	font-family: PFD;
+	font-size: 10em;
+}
+.header .message {
+	font-size: 2em;
+	margin: 20px;
+}
+
+
+.main {
+	font-size: 2rem;
+	color: white;
+	padding-left: 60px;
+}
+p {
+	text-align: center;
+}
+.list-adv {
+	font-size: 1.25rem;
 }
