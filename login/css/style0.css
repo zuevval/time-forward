@@ -1,0 +1,9 @@
+body {
+	background: #76b852;
+}
+.message {
+	color: white;
+	font-size: 24px;
+	margin: 20px;
+	text-align: center;
+}
