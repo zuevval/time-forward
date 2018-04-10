@@ -5,10 +5,21 @@
 	<title>Авторизация - Время вперёд!</title>
 	<meta charset="utf-8" />
 	<link href="css/style.css" rel="stylesheet">
+	<script src="js/login_page.js"></script>>
 </head>
 
 <body>
 	<div class="login-page">
+		<div class="header">
+			<h1>Время вперёд!</h1>
+		</div>
+		<div class="main">
+			<p class="message">Сервис, который оптимально распланирует ваш день в университете</p>
+			<ul class="list-adv">
+				<li>Учитывает важность задач, время и расстояние</li>
+				<li>В свободное время рекомендует посетить мероприятия в зависимости от интересов</li>
+			<ul>
+		</div>
 		<div class="form">
 			<form class="register-form">
 				<input type="text" placeholder="логин" />
@@ -18,9 +29,9 @@
 				<p class="message">Уже зарегистрированы? <a href="#">Войти</a></p>
 			</form>
 			<form class="login-form">
-				<input type="text" placeholder="логин" />
-				<input type="password" placeholder="пароль" />
-				<button>Войти</button>
+				<input id="login" type="text" placeholder="логин" />
+				<input id="password" type="password" placeholder="пароль" />
+				<button id="1" onClick="login_func()">Войти</button>
 				<p class="message">Не зарегистрированы? <a href="#">Создать аккаунт</a></p>
 			</form>
 		</div>
