@@ -2,9 +2,32 @@
 
 .login-page {
   width: 360px;
-  padding: 8% 0 0;
+  /*padding: 8% 0 0;*/
   margin: auto;
 }
+
+
+.header {
+	text-align: center;
+	font-size: 24px;
+	color: white;
+}
+
+.main {
+	font-size: 16px;
+	color: white;
+}
+.main p {
+	text-align: center;
+}
+.list-adv {
+	font-size: 14px;
+	margin-left: auto;
+	margin-right: 20px;
+}
+
+
+
 .form {
   position: relative;
   z-index: 1;
