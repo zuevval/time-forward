@@ -7,6 +7,6 @@ function login_func(){
 		redirect_to_input_page(ID); // Перенаправляем пользователя на его личную страничку
 	}
 	else {
-		location.reload(); // Обновляем страницу
+		window.location.reload(true); // Обновляем страницу
 	}
 }
