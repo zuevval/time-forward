@@ -21,7 +21,6 @@ echo json_encode(0);
 //echo $user_data['group_id'];
 $table1 = "usr_".$user_data['user_id']."_raw";
 $day=$_COOKIE["day"];
-$day=0;
 $raw_res = mysql_query("SELECT * FROM {$table1} WHERE day=$day");
 if (!$raw_res) {
     die("Query to show fields from table failed");
