@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Апр 11 2018 г., 22:17
+-- Время создания: Апр 12 2018 г., 18:08
 -- Версия сервера: 5.6.38
 -- Версия PHP: 5.5.38
 
@@ -25,27 +25,40 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `ajax_example`
+-- Структура таблицы `grp_136322_timetable`
 --
 
-CREATE TABLE `ajax_example` (
-  `name` varchar(50) NOT NULL,
-  `age` int(11) NOT NULL,
-  `sex` varchar(1) NOT NULL,
-  `wpm` int(11) NOT NULL
+CREATE TABLE `grp_136322_timetable` (
+  `day` int(11) NOT NULL,
+  `id_1` int(11) NOT NULL,
+  `start_1` int(11) NOT NULL,
+  `stop_1` int(11) NOT NULL,
+  `id_2` int(11) NOT NULL,
+  `start_2` int(11) NOT NULL,
+  `stop_2` int(11) NOT NULL,
+  `id_3` int(11) NOT NULL,
+  `start_3` int(11) NOT NULL,
+  `stop_3` int(11) NOT NULL,
+  `id_4` int(11) NOT NULL,
+  `start_4` int(11) NOT NULL,
+  `stop_4` int(11) NOT NULL,
+  `id_5` int(11) NOT NULL,
+  `start_5` int(11) NOT NULL,
+  `stop_5` int(11) NOT NULL,
+  `name_1` text NOT NULL,
+  `name_2` text NOT NULL,
+  `name_3` text NOT NULL,
+  `name_4` text NOT NULL,
+  `name_5` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Дамп данных таблицы `ajax_example`
+-- Дамп данных таблицы `grp_136322_timetable`
 --
 
-INSERT INTO `ajax_example` (`name`, `age`, `sex`, `wpm`) VALUES
-('Frank', 45, 'm', 87),
-('Jerry', 120, 'm', 20),
-('Jill', 22, 'f', 72),
-('Julie', 35, 'f', 90),
-('Regis', 75, 'm', 44),
-('Tracy', 27, 'f', 0);
+INSERT INTO `grp_136322_timetable` (`day`, `id_1`, `start_1`, `stop_1`, `id_2`, `start_2`, `stop_2`, `id_3`, `start_3`, `stop_3`, `id_4`, `start_4`, `stop_4`, `id_5`, `start_5`, `stop_5`, `name_1`, `name_2`, `name_3`, `name_4`, `name_5`) VALUES
+(0, 1, 120, 140, 2, 144, 164, 3, 168, 188, 0, 0, 0, 0, 0, 0, 'физика', 'английский язык', 'физкультура', '', ''),
+(1, 1, 120, 140, 2, 144, 164, 3, 168, 188, 0, 0, 0, 0, 0, 0, 'экономика', 'математическое моделирование', 'математический анализ (лекция)', '', '');
 
 -- --------------------------------------------------------
 
@@ -70,22 +83,24 @@ INSERT INTO `users` (`login`, `pass`, `user_id`, `group_id`) VALUES
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `user_data`
+-- Структура таблицы `usr_1_online`
 --
 
-CREATE TABLE `user_data` (
-  `n` int(11) DEFAULT NULL
+CREATE TABLE `usr_1_online` (
+  `id` int(11) NOT NULL,
+  `day_deadline` int(11) NOT NULL,
+  `min_time` int(11) NOT NULL,
+  `max_time` int(11) NOT NULL,
+  `name` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Дамп данных таблицы `user_data`
+-- Дамп данных таблицы `usr_1_online`
 --
 
-INSERT INTO `user_data` (`n`) VALUES
-(92),
-(92),
-(92),
-(92);
+INSERT INTO `usr_1_online` (`id`, `day_deadline`, `min_time`, `max_time`, `name`) VALUES
+(212, 2, 6, 12, 'тест по истории'),
+(213, 5, 12, 12, 'практика по экономике');
 
 -- --------------------------------------------------------
 
@@ -106,15 +121,58 @@ INSERT INTO `usr_1_raw` (`day`, `event_id`) VALUES
 (0, '201'),
 (0, '202');
 
---
--- Индексы сохранённых таблиц
---
+-- --------------------------------------------------------
 
 --
--- Индексы таблицы `ajax_example`
+-- Структура таблицы `usr_1_schedule`
 --
-ALTER TABLE `ajax_example`
-  ADD PRIMARY KEY (`name`);
+
+CREATE TABLE `usr_1_schedule` (
+  `day` int(11) NOT NULL,
+  `id_1` int(11) NOT NULL,
+  `start_1` int(11) NOT NULL,
+  `stop_1` int(11) NOT NULL,
+  `id_2` int(11) NOT NULL,
+  `start_2` int(11) NOT NULL,
+  `stop_2` int(11) NOT NULL,
+  `id_3` int(11) NOT NULL,
+  `start_3` int(11) NOT NULL,
+  `stop_3` int(11) NOT NULL,
+  `id_4` int(11) NOT NULL,
+  `start_4` int(11) NOT NULL,
+  `stop_4` int(11) NOT NULL,
+  `id_5` int(11) NOT NULL,
+  `start_5` int(11) NOT NULL,
+  `stop_5` int(11) NOT NULL,
+  `id_6` int(11) NOT NULL,
+  `start_6` int(11) NOT NULL,
+  `stop_6` int(11) NOT NULL,
+  `id_7` int(11) NOT NULL,
+  `start_7` int(11) NOT NULL,
+  `stop_7` int(11) NOT NULL,
+  `id_8` int(11) NOT NULL,
+  `start_8` int(11) NOT NULL,
+  `stop_8` int(11) NOT NULL,
+  `id_9` int(11) NOT NULL,
+  `start_9` int(11) NOT NULL,
+  `stop_9` int(11) NOT NULL,
+  `id_10` int(11) NOT NULL,
+  `start_10` int(11) NOT NULL,
+  `stop_10` int(11) NOT NULL,
+  `id_11` int(11) NOT NULL,
+  `start_11` int(11) NOT NULL,
+  `stop_11` int(11) NOT NULL,
+  `id_12` int(11) NOT NULL,
+  `start_12` int(11) NOT NULL,
+  `stop_12` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Дамп данных таблицы `usr_1_schedule`
+--
+
+INSERT INTO `usr_1_schedule` (`day`, `id_1`, `start_1`, `stop_1`, `id_2`, `start_2`, `stop_2`, `id_3`, `start_3`, `stop_3`, `id_4`, `start_4`, `stop_4`, `id_5`, `start_5`, `stop_5`, `id_6`, `start_6`, `stop_6`, `id_7`, `start_7`, `stop_7`, `id_8`, `start_8`, `stop_8`, `id_9`, `start_9`, `stop_9`, `id_10`, `start_10`, `stop_10`, `id_11`, `start_11`, `stop_11`, `id_12`, `start_12`, `stop_12`) VALUES
+(0, 202, 120, 140, 203, 144, 164, 211, 168, 188, 212, 200, 212, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
