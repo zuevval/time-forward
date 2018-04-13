@@ -13,7 +13,6 @@ if (!mysql_select_db($database))
 $group_id=$_COOKIE["group_id"];
 $day=$_COOKIE["day"];
 $table= "grp_".$group_id."_timetable";
-$table= "grp_136322_timetable";
 $tmtbl_res = mysql_query("SELECT * FROM {$table} WHERE day=$day");
 if (!$tmtbl_res) {
     die("Query to show fields from table failed");
