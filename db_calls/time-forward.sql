@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Апр 12 2018 г., 18:08
+-- Время создания: Апр 13 2018 г., 21:20
 -- Версия сервера: 5.6.38
 -- Версия PHP: 5.5.38
 
@@ -124,10 +124,10 @@ INSERT INTO `usr_1_raw` (`day`, `event_id`) VALUES
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `usr_1_schedule`
+-- Структура таблицы `usr_1_raw_events`
 --
 
-CREATE TABLE `usr_1_schedule` (
+CREATE TABLE `usr_1_raw_events` (
   `day` int(11) NOT NULL,
   `id_1` int(11) NOT NULL,
   `start_1` int(11) NOT NULL,
@@ -168,11 +168,66 @@ CREATE TABLE `usr_1_schedule` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
+-- Дамп данных таблицы `usr_1_raw_events`
+--
+
+INSERT INTO `usr_1_raw_events` (`day`, `id_1`, `start_1`, `stop_1`, `id_2`, `start_2`, `stop_2`, `id_3`, `start_3`, `stop_3`, `id_4`, `start_4`, `stop_4`, `id_5`, `start_5`, `stop_5`, `id_6`, `start_6`, `stop_6`, `id_7`, `start_7`, `stop_7`, `id_8`, `start_8`, `stop_8`, `id_9`, `start_9`, `stop_9`, `id_10`, `start_10`, `stop_10`, `id_11`, `start_11`, `stop_11`, `id_12`, `start_12`, `stop_12`) VALUES
+(0, 201, -1, -1, 202, -1, -1, 203, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1),
+(1, 201, -1, -1, 202, -1, -1, 203, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1);
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `usr_1_schedule`
+--
+
+CREATE TABLE `usr_1_schedule` (
+  `day` int(11) NOT NULL,
+  `name_1` text NOT NULL,
+  `start_1` int(11) NOT NULL,
+  `stop_1` int(11) NOT NULL,
+  `name_2` text NOT NULL,
+  `start_2` int(11) NOT NULL,
+  `stop_2` int(11) NOT NULL,
+  `name_3` text NOT NULL,
+  `start_3` int(11) NOT NULL,
+  `stop_3` int(11) NOT NULL,
+  `name_4` text NOT NULL,
+  `start_4` int(11) NOT NULL,
+  `stop_4` int(11) NOT NULL,
+  `name_5` text NOT NULL,
+  `start_5` int(11) NOT NULL,
+  `stop_5` int(11) NOT NULL,
+  `name_6` text NOT NULL,
+  `start_6` int(11) NOT NULL,
+  `stop_6` int(11) NOT NULL,
+  `name_7` text NOT NULL,
+  `start_7` int(11) NOT NULL,
+  `stop_7` int(11) NOT NULL,
+  `name_8` text NOT NULL,
+  `start_8` int(11) NOT NULL,
+  `stop_8` int(11) NOT NULL,
+  `name_9` text NOT NULL,
+  `start_9` int(11) NOT NULL,
+  `stop_9` int(11) NOT NULL,
+  `name_10` text NOT NULL,
+  `start_10` int(11) NOT NULL,
+  `stop_10` int(11) NOT NULL,
+  `name_11` text NOT NULL,
+  `start_11` int(11) NOT NULL,
+  `stop_11` int(11) NOT NULL,
+  `name_12` text NOT NULL,
+  `start_12` int(11) NOT NULL,
+  `stop_12` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
 -- Дамп данных таблицы `usr_1_schedule`
 --
 
-INSERT INTO `usr_1_schedule` (`day`, `id_1`, `start_1`, `stop_1`, `id_2`, `start_2`, `stop_2`, `id_3`, `start_3`, `stop_3`, `id_4`, `start_4`, `stop_4`, `id_5`, `start_5`, `stop_5`, `id_6`, `start_6`, `stop_6`, `id_7`, `start_7`, `stop_7`, `id_8`, `start_8`, `stop_8`, `id_9`, `start_9`, `stop_9`, `id_10`, `start_10`, `stop_10`, `id_11`, `start_11`, `stop_11`, `id_12`, `start_12`, `stop_12`) VALUES
-(0, 202, 120, 140, 203, 144, 164, 211, 168, 188, 212, 200, 212, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `usr_1_schedule` (`day`, `name_1`, `start_1`, `stop_1`, `name_2`, `start_2`, `stop_2`, `name_3`, `start_3`, `stop_3`, `name_4`, `start_4`, `stop_4`, `name_5`, `start_5`, `stop_5`, `name_6`, `start_6`, `stop_6`, `name_7`, `start_7`, `stop_7`, `name_8`, `start_8`, `stop_8`, `name_9`, `start_9`, `stop_9`, `name_10`, `start_10`, `stop_10`, `name_11`, `start_11`, `stop_11`, `name_12`, `start_12`, `stop_12`) VALUES
+(0, 'история', 120, 140, 'матмоделирование', 144, 164, 'физкультура', 168, 188, '-1', -1, -1, '-1', -1, -1, '-1', -1, -1, '-1', -1, -1, '-1', -1, -1, '-1', -1, -1, '-1', -1, -1, '-1', -1, -1, '-1', -1, -1),
+(1, 'история', 120, 140, 'матмоделирование', 144, 164, 'физкультура', 168, 188, '-1', -1, -1, '-1', -1, -1, '-1', -1, -1, '-1', -1, -1, '-1', -1, -1, '-1', -1, -1, '-1', -1, -1, '-1', -1, -1, '-1', -1, -1);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
