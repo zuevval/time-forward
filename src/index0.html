@@ -13,7 +13,7 @@
 	<link rel="stylesheet" href="css/style0.css">
 </head>
 
-<body>
+<body onload="loginpass()">
 	<div class="container">
 		<div class="nav">
 			<ul class="nav nav-pills nav-stacked">
@@ -40,11 +40,8 @@
 				</thead>
 				<tbody>
 			    	<tr>
-			    		<th scope="row">1</th>
-			    		<td><select>
-			    			<option>Пары</option>
-			    			<option>Еда</option>
-			    		</select></td>
+			    		<td>1</td>
+			    		<td id="firstRowId"></td>
 			    		<td><input type="range" min="1" max="3" step="1"></td>
 			    		<td><input type="range" min="10" max="18" step="1"></td>
 			    		<td></td>
