@@ -57,3 +57,20 @@ function remove_row(buttonIdToRemove) {
       
       last_id -= 1;
 }
+
+
+usr_id = get_id_from_url();
+events_id = get_raw_events_id(usr_id, 0);
+
+function raw_events_table(events_id) {
+      // Возвращает расписание
+      get_online(user_id,online_id);
+      get_lesson_name(lesson_id,group_id);
+      get_elective_name(elective_id,day;
+}
+
+function form_schedule() {
+      calc(usr_id,day);
+      redirect_to_output_page(usr_id);
+      write_raw_events_id(events_id,day);
+}
