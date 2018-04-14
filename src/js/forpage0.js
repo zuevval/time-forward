@@ -66,7 +66,7 @@ function raw_events_table(events_id) {
       // Возвращает расписание
       get_online(user_id,online_id);
       get_lesson_name(lesson_id,group_id);
-      get_elective_name(elective_id,day;
+      get_elective_name(elective_id,day);
 }
 
 function form_schedule() {
