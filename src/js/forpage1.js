@@ -8,7 +8,7 @@ var day = 0,
       res = get_schedule(usr_id, day);
 */
 var d = document,
-      res = [['матан', '12.00', '13.40'], ['линал', '14.00', '15.40'],['спм', '16.00', '17.40']];
+      res = ['матан', '12.00', '13.40', 'линал', '14.00', '15.40', 'спм', '16.00', '17.40', 'теормех', '18.00', '19.40'];
 
 
 // Заполним расписание списком res:
@@ -19,7 +19,7 @@ function init() { // После открытия страницы выполня
       // Здесь должен быть редирект на страницу логина
 
       var tbody = d.getElementById('tbody');
-      for (var i = 0; i < res.length; i++) {
+      for (var i = 0; i < res.length; i+=3) {
       var row = d.createElement('tr');
       tbody.appendChild(row);
       var td1 = d.createElement('td'),
@@ -28,8 +28,8 @@ function init() { // После открытия страницы выполня
       row.appendChild(td1);
       row.appendChild(td2);
       row.appendChild(td3);
-      td1.innerHTML = res[i][0];
-      td2.innerHTML = res[i][1];
-      td3.innerHTML = res[i][2];
+      td1.innerHTML = res[i];
+      td2.innerHTML = res[i+1];
+      td3.innerHTML = res[i+2];
       }
 }
