@@ -1,3 +1,12 @@
+// При открытии страницы выполняем:
+login=getCookie('login');
+pass=getCookie('pass');
+
+function loginpass() {
+      if (login==-1||pass==-1) window.alert("Пожалуйста, авторизуйтесь");
+      // Здесь должен быть редирект на страницу логина
+}
+
 var d = document,
       last_id = 1;
 
