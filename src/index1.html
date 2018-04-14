@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Готовое расписание</title>
-    
+    <script src="js/forpage1.js"></script>
 
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
@@ -13,7 +13,7 @@
 	<link rel="stylesheet" href="css/style1.css">
 </head>
 
-<body>
+<body onload="init()">
 	<div class="container">
 		<div class="nav">
 			<ul class="nav nav-pills nav-stacked">
@@ -28,23 +28,15 @@
 
 		<div class="main">
 			<p>Ваше расписание на день:</p>
-			<table class="table">
+			<table class="table" id="schedule">
 				<thead>
 			    	<tr>
-			    		<th scope="col">#</th>
 			    		<th scope="col">Имя</th>
-			    		<th scope="col">Время</th>
-			    		<th scope="col">Место</th>
+			    		<th scope="col">Время начала</th>
+			    		<th scope="col">Время конца</th>
 			    	</tr>
 				</thead>
-				<tbody>
-			    	<tr>
-			    		<th scope="row">1</th>
-			    		<td>Покушать</td>
-			    		<td>15.40</td>
-			    		<td>ГЗ</td>
-					</tr>
-				</tbody>
+				<tbody id="tbody"></tbody>
 			</table>
 		</div>
 	</div>
