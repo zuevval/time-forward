@@ -29,6 +29,9 @@ function main () {
 	schedule[2]=['физкультура',168,188];
 	//console.log(schedule);
 	write_schedule(login,pass,1,schedule);
+	button1.onclick=function(login,pass){
+		redirect_to_input_page(login,pass);
+	}
 }
 function check_if_logged_in(){
 	var login=getCookie('login');
@@ -37,6 +40,13 @@ function check_if_logged_in(){
 	if(login==-1||pass==-1){
 		window.alert("пожалуйста, авторизуйтесь");
 	}
+}
+
+function redirect_to_input_page(login,pass){
+	document.cookie = "pass="+pass;
+	document.cookie = "login="+login;
+	window.location.replace("php/");
+
 }
 
 function write_schedule(login,pass,day,schedule){
