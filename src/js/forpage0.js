@@ -130,12 +130,11 @@ function form_schedule() {
       */
 
       choosed_events = [];
-      /*for (var i = 1; )
-      d.getElementById("select3").value;*/
-      console.log(choosed_events);
-      /* Раскомм.
+      for (var i = 1; i <= last_id; i++) {
+            choosed_events.push(d.getElementById("select"+parseInt(i)).value);
+      }
+      // Здесь должна быть функция: choosed_events -> events_id
       calc(usr_id, day);
       redirect_to_output_page(usr_id);
       write_raw_events_id(events_id, day);
-      */
 }
