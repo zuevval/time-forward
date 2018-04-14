@@ -6,9 +6,24 @@ var day = 0,
       usr_id = get_id_from_url(),
       events_id = get_raw_events_id(usr_id, day);
 */
+
+// events_for_choosing = raw_events_table(events_id) // Массив всех возможных задач
+events_for_choosing = ['матан', 'линал', 'физра', 'матмод', 'физика', 'спм']; // пример
+
 function loginpass() { // При открытии страницы выполняем:
       // if (login==-1||pass==-1) window.alert("Пожалуйста, авторизуйтесь");
       // Здесь должен быть редирект на страницу логина
+
+      // Заполним ячейку выбора в первой строке списком events_for_choosing:
+      var select = d.createElement("select");
+      for (var i = 0; i < events_for_choosing.length; i++) {
+            var option = d.createElement("option");
+            option.text = events_for_choosing[i];
+            select.appendChild(option);
+      }
+      select.id = "select"+last_id;
+      td1 = d.getElementById('firstRowId');
+      td1.appendChild(select);
 }
 
 var d = document,
@@ -38,8 +53,6 @@ function add_row() {
 
       last_id += 1;
 
-      // events_for_choosing = raw_events_table(events_id) // Массив всех возможных задач
-      events_for_choosing = ['матан', 'линал', 'физра', 'матмод', 'физика', 'спм'];
       // Создадим меню выбора:
       var select = d.createElement("select");
       for (var i = 0; i < events_for_choosing.length; i++) {
@@ -47,6 +60,7 @@ function add_row() {
             option.text = events_for_choosing[i];
             select.appendChild(option);
       }
+      select.id = "select"+last_id;
       td3.appendChild(select);
 
       td2.innerHTML = last_id;
@@ -107,7 +121,21 @@ function raw_events_table(events_id) {
 }
 
 function form_schedule() {
+      /*
+            * Возвращает двумерный массив: [row][name, priority, time]
+            * Все элементы в массиве нумеруются с 0 !!! А в программе строки имеют
+            * своими атрибутами числа 1 и больше. Это значит, чтобы получить доступ
+            * к самой первой строке массива, выполняем:
+            * >>choosed_events[0][0] // 'первая' строка, 'имя' элемента
+      */
+
+      choosed_events = [];
+      /*for (var i = 1; )
+      d.getElementById("select3").value;*/
+      console.log(choosed_events);
+      /* Раскомм.
       calc(usr_id, day);
       redirect_to_output_page(usr_id);
       write_raw_events_id(events_id, day);
+      */
 }
