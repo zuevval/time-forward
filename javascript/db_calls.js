@@ -170,15 +170,19 @@ function get_raw_events(login,pass,day){
     oReq.onload = function() {
 		//console.log(this.responseText);
 		var resp=this.responseText;
-		resp = resp.replace('0', '');
-		var res = resp.split(' ');
+		//resp = resp.replace('0', '');
+		var res = resp.split('*');
 		for (var i=0; i<res.length; i++){
 			res[i]=res[i].trim();
 			res[i] = res[i].replace(' ', '');
 			res[i]=Number(res[i]);
 		}
+		res = res.slice(1,res.length-1);
 		//console.log(res);
-		raw_events=res;
+		raw_events=[];
+		for (var i=0; i<res.length; i++){
+			if(res[i]!= -1) raw_events.push(res[i]);
+		}
     };
     oReq.open("get", "../php_server_side/get_raw_events.php", false);
     oReq.send();
