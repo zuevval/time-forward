@@ -1,21 +1,25 @@
-/* Раскомментировать
-login=getCookie('login');
-pass=getCookie('pass');
+//Раскомментировать
+var login=getCookie('login');
+var pass=getCookie('pass');
 
-var day = 0,
-      usr_id = get_id_from_url(),
-      events_id = get_raw_events_id(usr_id, day);
-*/
+var day = 0;
+var events_id = get_raw_events(login, pass, day);
+//console.log(events_id);
 
-// events_for_choosing = raw_events_table(events_id) // Массив всех возможных задач
-events_for_choosing = ['матан', 'линал', 'физра', 'матмод', 'физика', 'спм']; // пример
+var group_id = get_group_id(login,pass);
+var events_for_choosing = raw_events_table(events_id, group_id, day); // Массив всех возможных задач
+console.log(events_for_choosing);
+//events_for_choosing = ['матан', 'линал', 'физра', 'матмод', 'физика', 'спм']; // пример
 
 var d = document,
       last_id = 1;
 
 function init() { // При открытии страницы выполняем:
-      // if (login==-1||pass==-1) window.alert("Пожалуйста, авторизуйтесь");
-      // Здесь должен быть редирект на страницу логина
+      if (login==-1||pass==-1) {
+            window.alert("Пожалуйста, авторизуйтесь");
+            window.location.replace("login.html");
+            // Здесь должен быть редирект на страницу логина
+      }
 
       // Заполним ячейку выбора в первой строке списком events_for_choosing:
       var select = d.createElement("select");
@@ -94,19 +98,23 @@ function remove_row(buttonIdToRemove) {
       last_id -= 1;
 }
 
-function raw_events_table(events_id) {
+function raw_events_table(events_id, group_id, day) {
       // Возвращает названия задач, чтобы пользователь смог добавить задачи в расписание 
       onlines = []; // Массив названий онлайн-дисциплин
       lesson_names = []; // Массив названий учебных офлайн-занятий
       elective_names = []; // Массив названий учебных дополнительных офлайн-занятий
 
       for (var i = 0; i < events_id.length; i+=2) {
-            onlines.push(get_online(login, pass, events_id[i]));
+            if(events_id[i]>210)
+            onlines.push(get_online(login, pass, events_id[i])[0]);
       }
 
       for (var i = 0; i < events_id.length; i++) {
-            lesson_names.push(get_lesson_name(events_id[i], group_id));
-            elective_names.push(get_elective_name(events_id[i], day));
+            //console.log(events_id[i]);
+            if(events_id[i]>200&&events_id[i]<=210)
+            lesson_names.push(get_lesson_name(events_id[i], group_id, day));
+            //elective_names.push(get_elective_name(events_id[i], day));
+            //такой функции (elective_names) пока нет
       }
 
       /*

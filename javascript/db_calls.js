@@ -225,7 +225,7 @@ function get_lesson_stop(lesson_id,group_id,day){
 function get_lesson_name(lesson_id,group_id,day){
 	var lesson_num=lesson_id%10;
 	var res=get_timetable(group_id,day);
-	return res[lesson_num+16];
+	return res[lesson_num+15];
 }
 
 function get_timetable(group_id,day){
@@ -236,10 +236,10 @@ function get_timetable(group_id,day){
     oReq.onload = function() {
 		var resp=this.responseText;
 		resp = resp.replace('0', '');
-		var res = resp.split(' ');
+		var res = resp.split('*');
 		for (var i=0; i<res.length; i++){
 			res[i]=res[i].trim();
-			res[i] = res[i].replace(' ', '');
+			//res[i] = res[i].replace(' ', '');
 		}
 		//console.log(res);
 		timetable=res;
