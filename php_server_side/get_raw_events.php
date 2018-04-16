@@ -19,13 +19,26 @@ if (!$usr_res) {
 $user_data = mysql_fetch_array($usr_res);
 echo json_encode(0);
 //echo $user_data['group_id'];
-$table1 = "usr_".$user_data['user_id']."_raw";
+$table1 = "usr_".$user_data['user_id']."_raw_events";
 $day=$_COOKIE["day"];
 $raw_res = mysql_query("SELECT * FROM {$table1} WHERE day=$day");
 if (!$raw_res) {
     die("Query to show fields from table failed");
 }
-while ($data = mysql_fetch_array($raw_res)) {
+
+if (!$raw_res) {
+    die("Query to show fields from table failed");
+}
+$rows1_num =  mysql_num_rows($raw_res);
+if ($rows1_num == 0) {
+	die("no events for this day");
+}
+
+$raw = mysql_fetch_row($raw_res);
+foreach($raw as $cell){
+    echo $cell."*";
+}
+/*while ($data = mysql_fetch_array($raw_res)) {
         echo $data['event_id'].' ';
-    }
+    }*/
 ?>

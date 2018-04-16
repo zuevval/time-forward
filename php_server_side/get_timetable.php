@@ -19,6 +19,6 @@ if (!$tmtbl_res) {
 }
 $timetable = mysql_fetch_row($tmtbl_res);
 foreach($timetable as $cell){
-    echo $cell." ";
+    echo $cell."*";
 }
 ?>
