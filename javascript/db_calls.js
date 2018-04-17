@@ -3,9 +3,29 @@ function check_if_logged_in(){
 	var login=getCookie('login');
 	var pass=getCookie('pass');
 	console.log(login);
+	var check=0;
 	if(login==-1||pass==-1){
 		window.alert("пожалуйста, авторизуйтесь");
+		check = -1;
 	}
+    else {
+    	var oReq = new XMLHttpRequest();
+	    oReq.onload = function() {
+			//console.log(this.responseText);
+			var resp=this.responseText;
+			resp = resp.replace('0', '');
+			console.log(resp);
+			check = Number(resp);
+	    };
+	    oReq.open("get", "../php_server_side/check_if_logged_in.php", false);
+	    oReq.send();
+	    if(check==-1){
+	    	window.alert("логин и пароль не совпадают");
+	    	document.cookie = "pass="+ '-1';
+			document.cookie = "login="+ '-1';
+	    }
+	}
+    return check;
 }
 
 function redirect_to_input_page(login,pass){

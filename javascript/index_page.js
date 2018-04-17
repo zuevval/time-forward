@@ -15,8 +15,9 @@ var d = document,
       last_id = 1;
 
 function init() { // При открытии страницы выполняем:
-      if (login==-1||pass==-1) {
-            window.alert("Пожалуйста, авторизуйтесь");
+      check=check_if_logged_in();
+      if (check==-1) {
+            //window.alert("Пожалуйста, авторизуйтесь");
             window.location.replace("login.html");
             // Здесь должен быть редирект на страницу логина
       }
