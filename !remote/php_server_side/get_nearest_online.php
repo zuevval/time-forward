@@ -2,9 +2,9 @@
 //requires php 5.x
 echo json_encode(0);
 $db_host = 'localhost';
-$db_user = 'root';
-$db_pwd = '';
-$database = 'time-forward';
+$db_user = 'zuevzuevva';
+$db_pwd = 'verystrongpass';
+$database = 'zuevzuevva';
 
 if (!mysql_connect($db_host, $db_user, $db_pwd))
     die("Can't connect to database");
@@ -23,9 +23,8 @@ echo json_encode(0);
 //echo $user_data['group_id'];
 $table1 = "usr_".$user_data['user_id']."_online";
 //$table1 = "usr_1_online";
-$online_id=$_COOKIE["online_id"];
 
-$online_res = mysql_query("SELECT * FROM {$table1} WHERE id=$online_id");
+$online_res = mysql_query("SELECT * FROM {$table1}");
 if (!$online_res) {
     die("Query to show fields from table failed");
 }
