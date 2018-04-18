@@ -4,14 +4,17 @@ function calc_long(login,pass,day){ //в общем для полноценно�
 	for(var i=0; i<144;i++)time_gaps.push(-1);
 	// group = get_user_info(login,pass); вот это точно пока не надо
 	//lessons=get_schedule(login,pass,day); ето потом тестим
-	lessons=[[236,10,20]]
-	console.log(lessons[0][1])
-	for(var i=0;i<lessons.length;i++){
-		//var id_lesson=get_id_lesson_by_name(lessons[i][0]); // мне нужен айди события, а функция получения расписания выдаёт название (мне кажется лучше передавать id события + имя в доп ячейкии массива или вообще передавать только id и сделать функцию получения  по id имени
+	lessons=["sample_name",10,20]
+	//console.log(lessons[0][1])
+	var i=0
+	while(lessons[3*i]!=undefined){
+		//var id_lesson=get_lesson_name(lessons[3*i][0],group,day); // мне нужен айди события, а функция получения расписания выдаёт название (мне кажется лучше передавать id события + имя в доп ячейкии массива или вообще передавать только id и сделать функцию получения  по id имени
 		var id_lesson=236
-		var s=lessons[i][1]
-		var k=lessons[i][2] //тут творится чертовщина
-		for( /* t=lessons[i][1] */s; s<=k/* t<=lessons[i][2] */;/* i++ */s++)time_gaps[s]=id_lesson;
+		var s=lessons[3*i+1]
+		console.log(s)
+		var k=lessons[3*i+2] //тут творится чертовщина
+		for( /* t=lessons[i][1] */s; s<=k/* t<=lessons[i][2] */;/* i++ */s++)time_gaps[s]=id_lesson;// подумать о s<=k, верно ли?
+		i++
 	}
 	//var nearest_deadline = get_nearest_online(login,pass)
 	var possible_start=0;
@@ -34,5 +37,24 @@ function calc_long(login,pass,day){ //в общем для полноценно�
 			}else count=1
 		}Error_log.push("не удалось разместить онлайн курс")
 	}
+	//console.log(time_gaps)
+	//var electives=get_electives()// откуд берётся эта информация?
+	var electives=[[666,0,120]] // это для теста
+	for (var i=0;i<electives.length;i++){
+		var s = electives[i][1]
+		var k = electives[i][2]
+		elective_filling:
+		{
+			for(var p=s; p<=k;p++){
+				if(time_gaps[p]!=-1 ){ //это то что происходит при конфликте
+					if (time_gaps.length<145) time_gaps.push(-2) // что-то там надо добавлять
+					time_gaps.push(electives[i][0])
+					break elective_filling
+				}
+			}
+			for(s;s<=k;s++)time_gaps[s]=electives[i][0]
+		}
+	}
 	console.log(time_gaps)
+	return time_gaps
 }
