@@ -1,4 +1,29 @@
-
+function login_page_check(){
+	var login=getCookie('login');
+	var pass=getCookie('pass');
+	console.log(login);
+	var check=0;
+	if(login==-1||pass==-1){
+		check = -1;
+	}
+    else {
+    	var oReq = new XMLHttpRequest();
+	    oReq.onload = function() {
+			//console.log(this.responseText);
+			var resp=this.responseText;
+			resp = resp.replace('0', '');
+			console.log(resp);
+			check = Number(resp);
+	    };
+	    oReq.open("get", "../php_server_side/check_if_logged_in.php", false);
+	    oReq.send();
+	    if(check==-1){
+	    	document.cookie = "pass="+ '-1';
+			document.cookie = "login="+ '-1';
+	    }
+	}
+    return check;
+}
 function check_if_logged_in(){
 	var login=getCookie('login');
 	var pass=getCookie('pass');
@@ -81,6 +106,8 @@ function write_raw_events(login,pass,day,evnts){
 	for (var i=0; i<evnts.length; i++){
 		events_string=events_string+evnts[i];
 	}
+	console.log(evnts);
+	console.log(events_string);
 	var PageToSendTo = "../php_server_side/write_raw_events.php?";
 	var VariablePlaceholder = "events_string=";
  	var UrlToSend = PageToSendTo + VariablePlaceholder + events_string;

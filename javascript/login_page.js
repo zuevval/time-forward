@@ -3,17 +3,17 @@ window.addEventListener("load", main, false);
 function main () {
 	var login=getCookie('login');
 	var pass=getCookie('pass');
-	check=check_if_logged_in();
+	check=login_page_check();
       if (check!=-1) {
             window.alert("Вы уже вошли в систему");
             window.location.replace("index.php");
-            // Здесь должен быть редирект на страницу логина
+            // Здесь редирект на страницу логина
       }
 	butt1.onclick = function(){
 		var login=document.getElementById('login').value,		// Логин, введенныей в форме на index.html
 		password=document.getElementById('password').value; // Пароль
 		console.log(login);
-		console.log(password);
+		//console.log(password);
 		ID = get_group_id(login, password);
 		if (ID != -1) {
 			redirect_to_input_page(login, password); // Перенаправляем пользователя на его личную страничку

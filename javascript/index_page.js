@@ -101,9 +101,9 @@ function remove_row(buttonIdToRemove) {
 
 function raw_events_table(events_id, group_id, day) {
       // Возвращает названия задач, чтобы пользователь смог добавить задачи в расписание 
-      onlines = []; // Массив названий онлайн-дисциплин
-      lesson_names = []; // Массив названий учебных офлайн-занятий
-      elective_names = []; // Массив названий учебных дополнительных офлайн-занятий
+      var onlines = []; // Массив названий онлайн-дисциплин
+      var lesson_names = []; // Массив названий учебных офлайн-занятий
+      var elective_names = []; // Массив названий учебных дополнительных офлайн-занятий
 
       for (var i = 0; i < events_id.length; i+=2) {
             if(events_id[i]>210)
@@ -124,26 +124,33 @@ function raw_events_table(events_id, group_id, day) {
       get_lesson_name(lesson_id, group_id);
       get_elective_name(elective_id, day);
       */
-
-      var events_for_choosing = onlines+lesson_names+elective_names;
+      console.log(lesson_names);
+      var events_for_choosing = lesson_names.concat(elective_names, onlines);
       return events_for_choosing;
 }
 
 function form_schedule() {
-      /*
-            * Возвращает двумерный массив: [row][name, priority, time]
-            * Все элементы в массиве нумеруются с 0 !!! А в программе строки имеют
-            * своими атрибутами числа 1 и больше. Это значит, чтобы получить доступ
-            * к самой первой строке массива, выполняем:
-            * >>choosed_events[0][0] // 'первая' строка, 'имя' элемента
-      */
 
-      choosed_events = [];
+      var choosed_events_names = [];
       for (var i = 1; i <= last_id; i++) {
-            choosed_events.push(d.getElementById("select"+parseInt(i)).value);
+            choosed_events_names.push(d.getElementById("select"+parseInt(i)).value);
       }
-      // Здесь должна быть функция: choosed_events -> events_id
-      calc(usr_id, day);
+      console.log(choosed_events_names);
+      var choosed_events_id = [];
+      for (var i=0; i < choosed_events_names.length; i++){
+            for (var j=0; j < events_for_choosing.length; j++){
+                  if (events_for_choosing[j]==choosed_events_names[i])
+                        choosed_events_id.push(events_id[j]);
+                  break;
+            }
+      }
+      console.log(choosed_events_id);
+      if(choosed_events_id.length >  12)
+            window.alert("Не многовато? Выберите двенадцать событий или меньше! Тринадцатое несчастливое");
+      else {
+            write_raw_events(login, pass, day, choosed_events_id);
+            window.location.replace("output.html");
+      }
+      //calc(choosed_events_id, day);
       redirect_to_output_page(usr_id);
-      write_raw_events_id(events_id, day);
 }
