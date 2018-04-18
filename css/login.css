@@ -1,18 +1,14 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:300);
 
 .login-page {
-  width: 360px;
-  /*padding: 8% 0 0;*/
-  margin: auto;
+	width: 360px;
+	margin: auto;
 }
-
 
 .header {
-	text-align: center;
-	font-size: 24px;
-	color: white;
+	align-content: center;
+	text-align: center; /* Для EDGE */
 }
-
 .main {
 	font-size: 16px;
 	color: white;
@@ -25,9 +21,6 @@
 	margin-left: auto;
 	margin-right: 20px;
 }
-
-
-
 .form {
   position: relative;
   z-index: 1;
@@ -49,7 +42,10 @@
   box-sizing: border-box;
   font-size: 14px;
 }
-.form button {
+input[type=button]:hover, input[type=button]:active, input[type=button]:focus {
+  background: #43A047;
+}
+input[type=button] {
   font-family: "Roboto", sans-serif;
   text-transform: uppercase;
   outline: 0;
@@ -62,9 +58,6 @@
   -webkit-transition: all 0.3 ease;
   transition: all 0.3 ease;
   cursor: pointer;
-}
-.form button:hover,.form button:active,.form button:focus {
-  background: #43A047;
 }
 .form .message {
   margin: 15px 0 0;
