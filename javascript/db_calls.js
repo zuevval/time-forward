@@ -275,6 +275,17 @@ function get_lesson_name(lesson_id,group_id,day){
 	return res[lesson_num+15];
 }
 
+function get_tmtbl_id (group_id,day){
+	var list1 =get_timetable(group_id,day);
+	var res = [];
+	for (var i=0; i < 5; i++){
+		if(list1[i*3+1]!=0)
+			res.push(Number(list1[i*3+1]) + 200);
+	}
+	console.log(res);
+	return res;
+}
+
 function get_timetable(group_id,day){
 	document.cookie = "group_id="+group_id;
 	document.cookie = "day="+day;

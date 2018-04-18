@@ -3,10 +3,12 @@ var login=getCookie('login');
 var pass=getCookie('pass');
 
 var day = 0;
-var events_id = get_raw_events(login, pass, day);
+var group_id = get_group_id(login,pass);
+var events_id = get_tmtbl_id(group_id, day);
+console.log(events_id);
+events_id=events_id.concat(get_raw_events(login, pass, day));
 //console.log(events_id);
 
-var group_id = get_group_id(login,pass);
 var events_for_choosing = raw_events_table(events_id, group_id, day); // Массив всех возможных задач
 console.log(events_for_choosing);
 //events_for_choosing = ['матан', 'линал', 'физра', 'матмод', 'физика', 'спм']; // пример
