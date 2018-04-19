@@ -36,7 +36,14 @@ function init() { // При открытии страницы выполняем
       td1.appendChild(select);
 }
 
+function choose_task() {
+      window.location.replace("#");
+}
+
 function add_row() {
+      window.location.replace("#okno");
+
+      /*
       // Находим нужную таблицу
       var tbody = d.getElementById('tasks').getElementsByTagName('tbody')[0];
 
@@ -74,6 +81,8 @@ function add_row() {
       td4.innerHTML = '<input type="range" min="1" max="3" step="1">';
       td5.innerHTML = '<input type="range" min="10" max="18" step="1">';
       td6.innerHTML = '<button id="butId'+parseInt(last_id)+'" class="button_delete" onClick="remove_row(this.id)">X</button>';
+
+      */
 }
 
 function remove_row(buttonIdToRemove) {
@@ -141,9 +150,9 @@ function form_schedule() {
       for (var i=0; i < choosed_events_names.length; i++){
             for (var j=0; j < events_for_choosing.length; j++){
                   if (events_for_choosing[j]==choosed_events_names[i]){
-					  choosed_events_id.push(events_id[j]);
-					  break;
-				  }
+                                choosed_events_id.push(events_id[j]);
+                                break;
+                          }
             }
       }
       console.log(choosed_events_id);
@@ -151,9 +160,9 @@ function form_schedule() {
             window.alert("Не многовато? Выберите двенадцать событий или меньше! Тринадцатое несчастливое");
       else {
             write_raw_events(login, pass, day, choosed_events_id);
-			var res1 = calc(login, pass, day);
-			write_schedule(login, pass, day, res1);
-			console.log(res1);
+                  var res1 = calc(login, pass, day);
+                  write_schedule(login, pass, day, res1);
+                  console.log(res1);
             window.location.replace("output.html");
       }
 }
