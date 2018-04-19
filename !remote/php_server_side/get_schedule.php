@@ -34,8 +34,9 @@ if ($rows1_num == 0) {
 
 $schedule = mysql_fetch_row($schedule_res);
 foreach($schedule as $cell){
-    $temp = $cell;
-	$temp = iconv("windows-1251", "UTF-8", "$temp");
-    echo $temp."*";
+    //Это если прооблемы с кодировкой (echo $temp)
+    //$temp = $cell;
+	//$temp = iconv("windows-1251", "UTF-8", "$temp");
+    echo $cell."*";
 }
 ?>
