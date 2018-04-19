@@ -21,8 +21,8 @@ if (!$tmtbl_res) {
 $timetable = mysql_fetch_row($tmtbl_res);
 foreach($timetable as $cell){
 	//Это если прооблемы с кодировкой (echo $temp)
-    //$temp = $cell;
-	//$temp = iconv("windows-1251", "UTF-8", "$temp");
-    echo $cell."*";
+    $temp = $cell;
+	$temp = iconv("windows-1251", "UTF-8", "$temp");
+    echo $temp."*";
 }
 ?>

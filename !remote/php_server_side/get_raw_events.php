@@ -37,9 +37,9 @@ if ($rows1_num == 0) {
 $raw = mysql_fetch_row($raw_res);
 foreach($raw as $cell){
     //Это если прооблемы с кодировкой (echo $temp)
-    //$temp = $cell;
-	//$temp = iconv("windows-1251", "UTF-8", "$temp");
-    echo $cell."*";
+    $temp = $cell;
+	$temp = iconv("windows-1251", "UTF-8", "$temp");
+    echo $temp."*";
 }
 /*while ($data = mysql_fetch_array($raw_res)) {
         echo $data['event_id'].' ';
