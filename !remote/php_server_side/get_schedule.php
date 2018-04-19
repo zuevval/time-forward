@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 //requires php 5.x
 $db_host = 'localhost';
 $db_user = 'zuevzuevva';
@@ -35,8 +35,8 @@ if ($rows1_num == 0) {
 $schedule = mysql_fetch_row($schedule_res);
 foreach($schedule as $cell){
     //Это если прооблемы с кодировкой (echo $temp)
-    $temp = $cell;
-	$temp = iconv("windows-1251", "UTF-8", "$temp");
-    echo $temp."*";
+    //$temp = $cell;
+	//$temp = iconv("windows-1251", "UTF-8", "$temp");
+    echo $cell."*";
 }
 ?>
