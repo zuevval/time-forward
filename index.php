@@ -28,7 +28,7 @@
 				<br>
 				<li><a href="output.html">Готовое расписание</a></li>
 				<audio controls id="au1">
-    				<source src="audio/timefwd.mp3" type="audio/mpeg">
+    				<source src="files/audio/timefwd.mp3" type="audio/mpeg">
 				</audio>
 				<li class="byOKStop">&copy; 2018 OK Stop</li>
 			</ul>
