@@ -1,14 +1,16 @@
-/* Раскомментировать
-login=getCookie('login');
-pass=getCookie('pass');
+//Раскомментировать
+var login=getCookie('login');
+var pass=getCookie('pass');
 
-var day = 0,
-      usr_id = get_id_from_url(),
-      events_id = get_raw_events_id(usr_id, day),
-      res = get_schedule(usr_id, day);
-*/
-var d = document,
-      res = ['матан', '12.00', '13.40', 'линал', '14.00', '15.40', 'спм', '16.00', '17.40', 'теормех', '18.00', '19.40'];
+var day = 0;
+//events_id = get_raw_events(login, pass, day),
+var res = get_schedule(login, pass, day);
+var group_id = get_group_id(login, pass);
+//res = get_timetable(group_id, day);
+//res = get_schedule(login, pass, day);
+
+var d = document;
+//res = ['матан', '12.00', '13.40', 'линал', '14.00', '15.40', 'спм', '16.00', '17.40', 'теормех', '18.00', '19.40'];
 
 
 // Заполним расписание списком res:

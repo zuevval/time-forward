@@ -137,13 +137,13 @@ function form_schedule() {
       for (var i = 1; i <= last_id; i++) {
             choosed_events_names.push(d.getElementById("select"+parseInt(i)).value);
       }
-      console.log(choosed_events_names);
       var choosed_events_id = [];
       for (var i=0; i < choosed_events_names.length; i++){
             for (var j=0; j < events_for_choosing.length; j++){
-                  if (events_for_choosing[j]==choosed_events_names[i])
-                        choosed_events_id.push(events_id[j]);
-                  break;
+                  if (events_for_choosing[j]==choosed_events_names[i]){
+					  choosed_events_id.push(events_id[j]);
+					  break;
+				  }
             }
       }
       console.log(choosed_events_id);
@@ -151,8 +151,8 @@ function form_schedule() {
             window.alert("Не многовато? Выберите двенадцать событий или меньше! Тринадцатое несчастливое");
       else {
             write_raw_events(login, pass, day, choosed_events_id);
+			var res1 = calc(login, pass, day);
+			console.log(res1);
             window.location.replace("output.html");
       }
-      //calc(choosed_events_id, day);
-      redirect_to_output_page(usr_id);
 }

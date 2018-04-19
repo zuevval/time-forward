@@ -21,6 +21,8 @@ function main () {
 	console.log('lesson ends at '+lesson_stop);
 	var lesson_name=get_lesson_name(201,group_id,today);
 	console.log("lesson is "+lesson_name);
+	var timetable = get_timetable(group_id,today);
+	console.log(timetable);
 	var onl=get_nearest_online(login,pass);
 	console.log('nearest online is '+onl);
 	get_online(login,pass,213);

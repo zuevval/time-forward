@@ -3,6 +3,7 @@
 
 <script type="text/javascript" src="javascript/db_calls.js"></script>
 <script type="text/javascript" src="javascript/index_page.js"></script>
+<script type="text/javascript" src="javascript/calc.js"></script>
 
 <!-- Bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
