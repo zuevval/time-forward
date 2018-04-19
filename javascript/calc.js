@@ -1,7 +1,12 @@
 
 function calc(login, pass, day){
 	var long = calc_long(login, pass, day);
-	var short = calc_short(calc_long, login, pass);
+	for(var i=0; i<long.length; i++){
+		if(long[i]==-1)
+			long[i]=0;
+	}
+	console.log(long);
+	var short = calc_short(long, login, pass);
 	return short;
 }
 
@@ -50,7 +55,7 @@ function calc_long(login,pass,day){ //в общем для полноценно�
 			}else count=1
 		}Error_log.push("не удалось разместить онлайн курс")
 	}
-	console.log(time_gaps)
+	//console.log(time_gaps)
 	//var electives=get_electives()// откуд берётся эта информация?
 	// var electives=[[666,0,120]] // это для теста
 	// for (var i=0;i<electives.length;i++){
@@ -68,7 +73,7 @@ function calc_long(login,pass,day){ //в общем для полноценно�
 			// for(s;s<=k;s++)time_gaps[s]=electives[i][0]
 		// }
 	// }
-	console.log(time_gaps)
+	//console.log(time_gaps)
 	return time_gaps
 }
 
@@ -84,7 +89,12 @@ function time(n,k){//n-начало  k-конец  (пятиминутки)
 	var m2=x2%60;
 	if (m1<10){m1='0'+m1}
 	if (m2<10){m2='0'+m2}
-	var M=["Начало в "+h1+':'+m1+' ','Конец в '+h2+':'+m2]
+	m1=String(m1);
+	m2=String(m2);
+	h1=String(h1);
+	h2=String(h2);
+	//var M=["Начало в "+h1+':'+m1+' ','Конец в '+h2+':'+m2]
+	var M=[h1+m1,h2+m2]
 	return M
 }
 
@@ -97,16 +107,33 @@ function calc_short(M,login,pass){  //На вход подается масси�
 	M=[0].concat(M);
 	M=M.concat(0);
 	
+	var group_id = get_group_id(login, pass);
+	
 	for (var i=0;i<=M.length;i++){
 		if(M[i]!=0 && M[i]!=M[i-1] && M[i]!=M[i+1]){
-			A['name'].push(M[i]);
-			A['start'].push(time(i-1,1)[0]);
-			A['finish'].push(time(1,i-1)[1]);
+			if(M[i]>200&&M[i]<=210){
+				var name1 = get_lesson_name(M[i], group_id, day);
+				A['name'].push(name1);
+				A['start'].push(time(i-1,1)[0]);
+				A['finish'].push(time(1,i-1)[1]);
+			} else if (M[i]>210){
+				var name1 = get_lesson_name(M[i], group_id, day);
+				A['name'].push(name1);
+				A['start'].push(time(i-1,1)[0]);
+				A['finish'].push(time(1,i-1)[1]);
+			}
 		}
 		
 		if(M[i]!=0 && M[i]!=M[i-1] && M[i]==M[i+1]){
-			A['name'].push(M[i]);
-			A['start'].push(time(i-1,1)[0]);
+			if(M[i]>200&&M[i]<=210){
+				var name1 = get_lesson_name(M[i], group_id, day);
+				A['name'].push(name1);
+				A['start'].push(time(i-1,1)[0]);
+			} else if (M[i]>210){
+				var name1 = get_lesson_name(M[i], group_id, day);
+				A['name'].push(name1);
+				A['start'].push(time(i-1,1)[0]);
+			}
 		}
 		if(M[i]!=0 && M[i]==M[i-1] && M[i]!=M[i+1]){
 			A['finish'].push(time(1,i-1)[1]);
@@ -121,6 +148,16 @@ function calc_short(M,login,pass){  //На вход подается масси�
 		V.push(A['start'][i]);
 		V.push(A['finish'][i]);
 	}
+	console.log(V);
 	V.pop();V.pop();V.pop();
-	return V;
+	var V1 = [];
+	var temp = [];
+	for (var i=0; i < V.length/3; i++){
+		temp.push(V[3*i]);
+		temp.push(V[3*i+1]);
+		temp.push(V[3*i+2]);
+		V1.push(temp);
+		temp = [];
+	}
+	return V1;
 }

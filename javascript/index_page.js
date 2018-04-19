@@ -152,6 +152,7 @@ function form_schedule() {
       else {
             write_raw_events(login, pass, day, choosed_events_id);
 			var res1 = calc(login, pass, day);
+			write_schedule(login, pass, day, res1);
 			console.log(res1);
             window.location.replace("output.html");
       }
