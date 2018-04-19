@@ -28,10 +28,11 @@
 				<li><a href="#">Карта перемещений</a></li>
 				<br>
 				<li><a href="output.html">Готовое расписание</a></li>
-				<audio controls id="au1">
+				<li class="byOKStop">&copy; 2018 OK Stop</li>
+				<img class="okstop_logo" src="files/img/okstop_logo.png" width=70 height=70>
+				<audio controls id="au1" class="aud1">
     				<source src="files/audio/timefwd.mp3" type="audio/mpeg">
 				</audio>
-				<li class="byOKStop">&copy; 2018 OK Stop</li>
 			</ul>
 		</div>
 

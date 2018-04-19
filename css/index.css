@@ -32,9 +32,17 @@ li {
 .profile_text{
 	font-size: 24px;	
 }
+.aud1 {
+	padding-top: 50px;
+	margin-top: 100px;
+}
 .byOKStop {
-	padding-top: 300px;
+	padding-top: 80%;
 	font-size: 12px;
+}
+.okstop_logo {
+	display:block;
+	margin: 0 auto;
 }
 .nav A {
 	color: white; /* Цвет ссылок */
