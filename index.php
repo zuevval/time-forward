@@ -37,24 +37,18 @@
 
 		<div class="main">
 			<p>Выберите задачи на день:</p>
-			<table class="table" id="tasks">
+			<table class="table_1" id="tasks">
 				<thead>
 			    	<tr>
 			    		<th scope="col">#</th>
-			    		<th scope="col">Имя</th>
-			    		<th scope="col">Приоритет</th>
-			    		<th scope="col">Время</th>
+			    		<th scope="col">Имя события</th>
+			    		<th scope="col">Начало</th>
+			    		<th scope="col">Конец</th>
+			    		<th scope="col">Описание</th>
 			    		<th scope="col">Удалить</th>
 			    	</tr>
 				</thead>
 				<tbody>
-			    	<tr>
-			    		<td>1</td>
-			    		<td id="firstRowId"></td>
-			    		<td><input type="range" min="1" max="3" step="1"></td>
-			    		<td><input type="range" min="10" max="18" step="1"></td>
-			    		<td></td>
-					</tr>
 				</tbody>
 			</table>
 			<div class="buttons">
@@ -63,5 +57,36 @@
 			</div>
 		</div>
 	</div>
+	
+    <div id="okno">
+		<h4>Добавить задачу</h4>
+		<p>Выберите событие, которое хотите добавить:</p>
+		<div class="row">
+			<div class=".col-md-6">
+				<div class="searching">
+					<input type="text" value="поиск по имени">
+				</div>
+			</div>
+			<div class=".col-md-6">
+				<div class="filtr">
+					<input type="checkbox" value="поиск по имени">
+				</div>
+			</div>
+		</div>
+		<div class="table_2_container">
+			<table class="table_2" id="add_task_table">
+				<thead>
+					<tr>
+						<th scope="col">Имя события</th>
+						<th scope="col">Начало</th>
+						<th scope="col">Конец</th>
+						<th scope="col">Описание</th>
+					</tr>
+				</thead>
+				
+			</table>
+		</div>
+		<button id="choose_task" onClick="choose_task()">Подтвердить</button>
+    </div>
 </body>
 </html>
