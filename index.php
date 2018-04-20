@@ -63,13 +63,14 @@
 		<h4>Добавить задачу</h4>
 		<p>Выберите событие, которое хотите добавить:</p>
 		<div class="row_sf">
-			<div class="searching">
-				<input type="text" value="поиск по имени">
-			</div>
+			
 			<div class="filtr">
 				<input type="checkbox">Учебные дисциплины<br>
 				<input type="checkbox">Дополнительные занятия<br>
 				<input type="checkbox">Питание
+			</div>
+			<div class="searching">
+				<input type="text" value="поиск по имени">
 			</div>
 		</div>
 		<div class="table_2_container_container">
@@ -83,10 +84,13 @@
 							<th scope="col">Описание</th>
 						</tr>
 					</thead>
+					<tbody>
+						
+					</tbody>
 				</table>
 			</div>
 		</div>
-		<button id="choose_task" onClick="choose_task()">Подтвердить</button>
+		<button id="return_butt" onClick="return_butt()">Вернуться</button>
     </div>
 </body>
 </html>

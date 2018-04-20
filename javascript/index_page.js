@@ -14,7 +14,7 @@ console.log(events_for_choosing);
 //events_for_choosing = ['матан', 'линал', 'физра', 'матмод', 'физика', 'спм']; // пример
 
 var d = document,
-      last_id = 1;
+      last_id = 0;
 
 function init() { // При открытии страницы выполняем:
       check=check_if_logged_in();
@@ -24,6 +24,9 @@ function init() { // При открытии страницы выполняем
             // Здесь должен быть редирект на страницу логина
       }
 
+      adding_rows();
+
+      /*
       // Заполним ячейку выбора в первой строке списком events_for_choosing:
       var select = d.createElement("select");
       for (var i = 0; i < events_for_choosing.length; i++) {
@@ -34,14 +37,35 @@ function init() { // При открытии страницы выполняем
       select.id = "select"+last_id;
       td1 = d.getElementById('firstRowId');
       td1.appendChild(select);
+      */
+
+
 }
 
-function choose_task() {
+function return_butt() {
       window.location.replace("#");
 }
 
 function add_row() {
-      window.location.replace("#okno");
+      window.location.replace("#okno"); // По нажатии кнопки
+}
+
+function adding_rows() {
+      // Создаем строки в таблице в окне, чтобы мы могли добавить событие в расписание
+
+      var tbody = d.getElementById('add_task_table').getElementsByTagName('tbody')[0];
+      var row = d.createElement("tr");
+      row.id = "rowId"+parseInt(last_id);
+      tbody.appendChild(row);
+      var td1 = d.createElement("td");
+      var td2 = d.createElement("td");
+      var td3 = d.createElement("td");
+      var td4 = d.createElement("td");
+      row.appendChild(td1);
+      row.appendChild(td2);
+      row.appendChild(td3);
+      row.appendChild(td4);
+      td1.innerHTML = "name";
 
       /*
       // Находим нужную таблицу
@@ -150,9 +174,9 @@ function form_schedule() {
       for (var i=0; i < choosed_events_names.length; i++){
             for (var j=0; j < events_for_choosing.length; j++){
                   if (events_for_choosing[j]==choosed_events_names[i]){
-                                choosed_events_id.push(events_id[j]);
-                                break;
-                          }
+					  choosed_events_id.push(events_id[j]);
+					  break;
+				  }
             }
       }
       console.log(choosed_events_id);
@@ -160,9 +184,9 @@ function form_schedule() {
             window.alert("Не многовато? Выберите двенадцать событий или меньше! Тринадцатое несчастливое");
       else {
             write_raw_events(login, pass, day, choosed_events_id);
-                  var res1 = calc(login, pass, day);
-                  write_schedule(login, pass, day, res1);
-                  console.log(res1);
+			var res1 = calc(login, pass, day);
+			write_schedule(login, pass, day, res1);
+			console.log(res1);
             window.location.replace("output.html");
       }
 }

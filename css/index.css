@@ -128,7 +128,7 @@ button:hover,button:active,button:focus {
 
 .row_sf {
 	padding:  auto;
-
+	margin-top: 20px;
 }
 .searching {
 	position: absolute;
@@ -153,6 +153,7 @@ button:hover,button:active,button:focus {
 	border-collapse: collapse;
 }
 .table_2 th, td {
+	height: auto;
 	text-align: center;
 	border: 1.5px solid black;
 	padding-left: 0.5em;
