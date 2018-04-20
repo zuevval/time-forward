@@ -32,9 +32,17 @@ li {
 .profile_text{
 	font-size: 24px;	
 }
+.aud1 {
+	padding-top: 50px;
+	margin-top: 100px;
+}
 .byOKStop {
-	padding-top: 300px;
+	padding-top: 80%;
 	font-size: 12px;
+}
+.okstop_logo {
+	display:block;
+	margin: 0 auto;
 }
 .nav A {
 	color: white; /* Цвет ссылок */
@@ -61,7 +69,7 @@ A:active {
 	font-size: 16px;
 	text-align: center;
 }
-.table {
+.table_1 {
 	min-width: 700px;
 	width: auto;
 	margin: auto;
@@ -78,7 +86,7 @@ th, td {
 	/*position: relative;*/
 	text-align: center;
 }
-.buttons button {
+button {
 	margin-top: 15px;
 	text-align: center;
 	font-family: "Roboto", sans-serif;
@@ -94,6 +102,72 @@ th, td {
 	transition: all 0.3 ease;
 	cursor: pointer;
 }
-.buttons button:hover,.form button:active,.form button:focus {
+button:hover,button:active,button:focus {
 	background: #43A047;
 }
+
+
+#okno {
+	background-color: white;
+    width: 40%;
+    height: 80%;
+    text-align: center;
+    padding: 15px;
+    border: 3px solid #4CAF50;
+    border-radius: 10px;
+    color: #188400;
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 300;
+    margin: auto;
+}
+#okno:target {display: block;}
+
+.row_sf {
+	padding:  auto;
+	margin-top: 20px;
+}
+.searching {
+	position: absolute;
+	padding: 20px 20px 0 50px;
+}
+.filtr {
+	text-align: left;
+	padding-left: 50%;
+	position: absolute;
+}
+.table_2_container_container {
+	padding-top: 50px;
+}
+.table_2_container {
+	overflow-y: scroll;
+	height: 150px;
+	margin: 50px;
+}
+.table_2 {
+	height: 100%;
+	width: 100%;
+	border-collapse: collapse;
+}
+.table_2 th, td {
+	height: auto;
+	text-align: center;
+	border: 1.5px solid black;
+	padding-left: 0.5em;
+	padding-right: 0.5em;
+}
+.close {
+	display: inline-block;
+	border: 1px solid #0000cc;
+	color: #0000cc;
+	padding: 0 12px;
+	margin: 10px;
+	text-decoration: none;
+	background: #f2f2f2;
+	font-size: 14pt;
+	cursor:pointer;
+}
+.close:hover {background: #e6e6ff;}

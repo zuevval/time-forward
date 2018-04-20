@@ -28,33 +28,28 @@
 				<li><a href="#">Карта перемещений</a></li>
 				<br>
 				<li><a href="output.html">Готовое расписание</a></li>
-				<audio controls id="au1">
+				<li class="byOKStop">&copy; 2018 OK Stop</li>
+				<img class="okstop_logo" src="files/img/okstop_logo.png" width=70 height=70>
+				<audio controls id="au1" class="aud1">
     				<source src="files/audio/timefwd.mp3" type="audio/mpeg">
 				</audio>
-				<li class="byOKStop">&copy; 2018 OK Stop</li>
 			</ul>
 		</div>
 
 		<div class="main">
 			<p>Выберите задачи на день:</p>
-			<table class="table" id="tasks">
+			<table class="table_1" id="tasks">
 				<thead>
 			    	<tr>
 			    		<th scope="col">#</th>
-			    		<th scope="col">Имя</th>
-			    		<th scope="col">Приоритет</th>
-			    		<th scope="col">Время</th>
+			    		<th scope="col">Имя события</th>
+			    		<th scope="col">Начало</th>
+			    		<th scope="col">Конец</th>
+			    		<th scope="col">Описание</th>
 			    		<th scope="col">Удалить</th>
 			    	</tr>
 				</thead>
 				<tbody>
-			    	<tr>
-			    		<td>1</td>
-			    		<td id="firstRowId"></td>
-			    		<td><input type="range" min="1" max="3" step="1"></td>
-			    		<td><input type="range" min="10" max="18" step="1"></td>
-			    		<td></td>
-					</tr>
 				</tbody>
 			</table>
 			<div class="buttons">
@@ -63,5 +58,39 @@
 			</div>
 		</div>
 	</div>
+	
+    <div id="okno">
+		<h4>Добавить задачу</h4>
+		<p>Выберите событие, которое хотите добавить:</p>
+		<div class="row_sf">
+			
+			<div class="filtr">
+				<input type="checkbox">Учебные дисциплины<br>
+				<input type="checkbox">Дополнительные занятия<br>
+				<input type="checkbox">Питание
+			</div>
+			<div class="searching">
+				<input type="text" value="поиск по имени">
+			</div>
+		</div>
+		<div class="table_2_container_container">
+			<div class="table_2_container">
+				<table class="table_2" id="add_task_table">
+					<thead>
+						<tr>
+							<th scope="col">Имя события</th>
+							<th scope="col">Начало</th>
+							<th scope="col">Конец</th>
+							<th scope="col">Описание</th>
+						</tr>
+					</thead>
+					<tbody>
+						
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<button id="return_butt" onClick="return_butt()">Вернуться</button>
+    </div>
 </body>
 </html>
