@@ -109,8 +109,8 @@ button:hover,button:active,button:focus {
 
 #okno {
 	background-color: white;
-    width: 600px;
-    height: 500px;
+    width: 40%;
+    height: 80%;
     text-align: center;
     padding: 15px;
     border: 3px solid #4CAF50;
@@ -123,17 +123,25 @@ button:hover,button:active,button:focus {
     bottom: 0;
     left: 300;
     margin: auto;
-  }
+}
 #okno:target {display: block;}
 
+.row_sf {
+	padding:  auto;
 
-/*.searching {
-	width: 200px;
+}
+.searching {
+	position: absolute;
+	padding: 20px 20px 0 50px;
+}
+.filtr {
 	text-align: left;
-	padding: 5px;
-	margin: 15px;
-	position: relative;
-}*/
+	padding-left: 50%;
+	position: absolute;
+}
+.table_2_container_container {
+	padding-top: 50px;
+}
 .table_2_container {
 	overflow-y: scroll;
 	height: 150px;

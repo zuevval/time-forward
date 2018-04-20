@@ -62,30 +62,29 @@
     <div id="okno">
 		<h4>Добавить задачу</h4>
 		<p>Выберите событие, которое хотите добавить:</p>
-		<div class="row">
-			<div class=".col-md-6">
-				<div class="searching">
-					<input type="text" value="поиск по имени">
-				</div>
+		<div class="row_sf">
+			<div class="searching">
+				<input type="text" value="поиск по имени">
 			</div>
-			<div class=".col-md-6">
-				<div class="filtr">
-					<input type="checkbox" value="поиск по имени">
-				</div>
+			<div class="filtr">
+				<input type="checkbox">Учебные дисциплины<br>
+				<input type="checkbox">Дополнительные занятия<br>
+				<input type="checkbox">Питание
 			</div>
 		</div>
-		<div class="table_2_container">
-			<table class="table_2" id="add_task_table">
-				<thead>
-					<tr>
-						<th scope="col">Имя события</th>
-						<th scope="col">Начало</th>
-						<th scope="col">Конец</th>
-						<th scope="col">Описание</th>
-					</tr>
-				</thead>
-				
-			</table>
+		<div class="table_2_container_container">
+			<div class="table_2_container">
+				<table class="table_2" id="add_task_table">
+					<thead>
+						<tr>
+							<th scope="col">Имя события</th>
+							<th scope="col">Начало</th>
+							<th scope="col">Конец</th>
+							<th scope="col">Описание</th>
+						</tr>
+					</thead>
+				</table>
+			</div>
 		</div>
 		<button id="choose_task" onClick="choose_task()">Подтвердить</button>
     </div>
