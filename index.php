@@ -12,11 +12,11 @@
 	<link rel="stylesheet" href="css/index.css">
 
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="eng"> <!-- сменил ru на eng-->
 
 <head>
     <meta charset="UTF-8">
-    <title>Задачи на день</title>
+    <title>Tasks for day</title>
 </head>
 
 <body onload="init()">
@@ -24,10 +24,10 @@
 		<div class="nav">
 			<ul class="nav nav-pills nav-stacked">
 				<li class="profile_text"><a href="#">Алексей</a></li>
-				<li><a href="#">Расписание</a></li>
-				<li><a href="#">Карта перемещений</a></li>
+				<li><a href="#">Shedule</a></li>
+				<li><a href="#">Map of movement</a></li>
 				<br>
-				<li><a href="output.html">Готовое расписание</a></li>
+				<li><a href="output.html">Completed shedule</a></li>
 				<li class="byOKStop">&copy; 2018 OK Stop</li>
 				<img class="okstop_logo" src="files/img/okstop_logo.png" width=70 height=70>
 				<audio controls id="au1" class="aud1">
@@ -37,37 +37,37 @@
 		</div>
 
 		<div class="main">
-			<p>Выберите задачи на день:</p>
+			<p>Chose tasks for day:</p>
 			<table class="table_1" id="tasks">
 				<thead>
 			    	<tr>
 			    		<th scope="col">#</th>
-			    		<th scope="col">Имя события</th>
-			    		<th scope="col">Начало</th>
-			    		<th scope="col">Конец</th>
-			    		<th scope="col">Описание</th>
-			    		<th scope="col">Удалить</th>
+			    		<th scope="col">title of event</th>
+			    		<th scope="col">Start</th>
+			    		<th scope="col">End</th>
+			    		<th scope="col">Description</th>
+			    		<th scope="col">Delete</th>
 			    	</tr>
 				</thead>
 				<tbody>
 				</tbody>
 			</table>
 			<div class="buttons">
-					<button id="add_task" onClick="add_row()">Добавить задачу</button>
-					<button id="form_schedule" onClick="form_schedule()">Сформировать расписание</button>
+					<button id="add_task" onClick="add_row()">Add task</button>
+					<button id="form_schedule" onClick="form_schedule()">Form shedule</button>
 			</div>
 		</div>
 	</div>
 	
     <div id="okno">
 		<h4>Добавить задачу</h4>
-		<p>Выберите событие, которое хотите добавить:</p>
+		<p>Chose event, that you want to add:</p>
 		<div class="row_sf">
 			
 			<div class="filtr">
-				<input type="checkbox">Учебные дисциплины<br>
-				<input type="checkbox">Дополнительные занятия<br>
-				<input type="checkbox">Питание
+				<input type="checkbox">main classes<br>
+				<input type="checkbox">extra events<br>
+				<input type="checkbox">meal
 			</div>
 			<div class="searching">
 				<input type="text" value="поиск по имени">
