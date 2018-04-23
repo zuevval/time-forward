@@ -42,7 +42,7 @@
 				<thead>
 			    	<tr>
 			    		<th scope="col">#</th>
-			    		<th scope="col">title of event</th>
+			    		<th scope="col">Name of event</th>
 			    		<th scope="col">Start</th>
 			    		<th scope="col">End</th>
 			    		<th scope="col">Description</th>
@@ -60,7 +60,7 @@
 	</div>
 	
     <div id="okno">
-		<h4>Добавить задачу</h4>
+		<h4>Add task</h4>
 		<p>Chose event, that you want to add:</p>
 		<div class="row_sf">
 			
@@ -70,7 +70,7 @@
 				<input type="checkbox">meal
 			</div>
 			<div class="searching">
-				<input type="text" value="поиск по имени">
+				<input type="text" value="Search by name">
 			</div>
 		</div>
 		<div class="table_2_container_container">
@@ -78,10 +78,10 @@
 				<table class="table_2" id="add_task_table">
 					<thead>
 						<tr>
-							<th scope="col">Имя события</th>
-							<th scope="col">Начало</th>
-							<th scope="col">Конец</th>
-							<th scope="col">Описание</th>
+							<th scope="col">Name of task</th>
+							<th scope="col">Start</th>
+							<th scope="col">End</th>
+							<th scope="col">Description</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -90,7 +90,7 @@
 				</table>
 			</div>
 		</div>
-		<button id="return_butt" onClick="return_butt()">Вернуться</button>
+		<button id="return_butt" onClick="return_butt()">Back</button>
     </div>
 </body>
 </html>
