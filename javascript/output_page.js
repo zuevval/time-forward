@@ -32,7 +32,7 @@ function init() { // После открытия страницы выполня
       td1.innerHTML = res[i];
 	  th = Math.floor(res[i+1]/100);
 	  tmin = res[i+1]%100;
-	  if(tmin%10==0) tmin = '0' + String(tmin);
+	  if(Math.floor(tmin/10)==0) tmin = '0' + String(tmin);
       td2.innerHTML = th+':'+tmin;
 	  th = Math.floor(res[i+2]/100);
 	  tmin = res[i+2]%100;

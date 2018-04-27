@@ -41,11 +41,11 @@
 			<table class="table_1" id="tasks">
 				<thead>
 			    	<tr>
-			    		<th scope="col">#</th>
+			    		<!--<th scope="col">#</th>-->
 			    		<th scope="col">Имя события</th>
 			    		<th scope="col">Начало</th>
 			    		<th scope="col">Конец</th>
-			    		<th scope="col">Описание</th>
+			    		<th scope="col">Приоритет</th>
 			    		<th scope="col">Удалить</th>
 			    	</tr>
 				</thead>
@@ -81,7 +81,8 @@
 							<th scope="col">Имя события</th>
 							<th scope="col">Начало</th>
 							<th scope="col">Конец</th>
-							<th scope="col">Описание</th>
+							<th scope="col">Приоритет</th>
+							<th scope="col">Выбрать</th>
 						</tr>
 					</thead>
 					<tbody>

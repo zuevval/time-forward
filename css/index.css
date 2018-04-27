@@ -44,16 +44,16 @@ li {
 	display:block;
 	margin: 0 auto;
 }
-.nav A {
+.nav a {
 	color: white; /* Цвет ссылок */
-}
-A:visited {
+} 
+.nav a:visited {
 	color: white; /* Цвет посещенных ссылок */
 }
-A:active {
+.nav a:active {
 	color: white; /* Цвет активных ссылок */
 }
-.nav a:hover,.nav a:focus {
+.nav a:hover, .nav a:focus {
 	color: #188400;
 }
 
@@ -144,6 +144,8 @@ button:hover,button:active,button:focus {
 }
 .table_2_container {
 	overflow-y: scroll;
+	/*overflow-x: hidden;*/
+	min-width: 85%;
 	height: 150px;
 	margin: 50px;
 }

@@ -1,13 +1,13 @@
 
 function calc(login, pass, day){
-	var long = calc_long(login, pass, day);
-	for(var i=0; i<long.length; i++){
-		if(long[i]==-1)
-			long[i]=0;
+	var long1 = calc_long(login, pass, day);
+	for(var i=0; i<long1.length; i++){
+		if(long1[i]==-1)
+			long1[i]=0;
 	}
-	console.log(long);
-	var short = calc_short(long, login, pass);
-	return short;
+	console.log(long1);
+	var short1 = calc_short1(long1, login, pass);
+	return short1;
 }
 
 
@@ -32,10 +32,11 @@ function calc_long(login,pass,day){ //в общем для полноценно�
 			time_gaps[s]=lessons[i];
 	}
 	
-	var nearest_deadline = get_nearest_online(login,pass)
+	var nearest_deadline = get_nearest_online(login,pass);
+	//console.log(nearest_deadline);
 	var possible_start=0; 
 	var count=1;
-	var earliest_time = 100;
+	var earliest_time = 200;
 	// раньше earliest_time не ставятся курсы
 	//var nearest_deadline=[0,1488,400,"бесконченость не предел"]
 	online_filling:
@@ -48,7 +49,7 @@ function calc_long(login,pass,day){ //в общем для полноценно�
 					console.log(count)
 					console.log(possible_start)
 					for(var p=possible_start; p<possible_start+count;p++){ //само заполнение
-						time_gaps[p]=nearest_deadline[1]
+						time_gaps[p]=nearest_deadline[0]
 						}
 					break online_filling // я заполняю один дедлайн!
 				}else count++
@@ -80,84 +81,57 @@ function calc_long(login,pass,day){ //в общем для полноценно�
 /*	time(n,k) выводит по начальной (n) и конечной (k) пятиминутке
 	время начала и конца события в нормальном виде*/
 	
-function time(n,k){//n-начало  k-конец  (пятиминутки)
-	var x1=n*5;//всего минут
-	var x2=k*5+5;
-	var h1=Math.floor(x1/60);//часов
-	var h2=Math.floor(x2/60);
-	var m1=x1%60;//минут
-	var m2=x2%60;
-	if (m1<10){m1='0'+m1}
-	if (m2<10){m2='0'+m2}
-	m1=String(m1);
-	m2=String(m2);
-	h1=String(h1);
-	h2=String(h2);
-	//var M=["Начало в "+h1+':'+m1+' ','Конец в '+h2+':'+m2]
-	var M=[h1+m1,h2+m2]
-	return M
+function time1(n){
+	//по номеру пятиминутки с начала дня выводит её время в hh:mm
+	var time = n*5;
+	var hours = Math.floor(time/60);
+	var minutes = time-60*hours;
+	//hours = String(hours);
+	// if(hours.length==1)
+		// hours = '0'+hours;
+	// minutes=String(minutes);
+	// if(minutes.length==1)
+		// minutes = '0'+minutes;
+	// return hours+':'+minutes;
+	return 100*hours+minutes;
 }
 
-function calc_short(M,login,pass){  //На вход подается массив пятиминуток, login и pass. На выход подается (здесь) одномерный массив
-	var A=['name','start','finish']; //на вывод
-	A['name']=[]; //id занятия СТОЛБЕЦ
-	A['start']=[]; // начало СТОЛБЕЦ
-	A['finish']=[]; // конец СТОЛБЕЦ
-	
-	M=[0].concat(M);
-	M=M.concat(0);
-	
+function calc_short1(M, login,pass){
+	var res = [];
+	var t = [];
+	var flag=0;
+	if(M[0]!=0){
+		t.push(get_event_name(M[0], login, pass));
+		t.push(time1(flag));
+		flag++;
+	}
+	for (var i=flag; i< M.length-1; i++){
+		if(M[i]!=0){ //если что-то стоит...
+			if(t.length==0){
+				t.push(get_event_name(M[i], login, pass));
+				t.push(time1(i));
+			}
+			if(t.length!=0&&M[i]!=M[i+1]){
+				t.push(time1(i));
+				res.push(t);
+				t=[];
+			}
+		}
+	}
+	console.log(res);
+	return res;
+}
+
+function get_event_name(id, login, pass){
 	var group_id = get_group_id(login, pass);
-	
-	for (var i=0;i<=M.length;i++){
-		if(M[i]!=0 && M[i]!=M[i-1] && M[i]!=M[i+1]){
-			if(M[i]>200&&M[i]<=210){
-				var name1 = get_lesson_name(M[i], group_id, day);
-				A['name'].push(name1);
-				A['start'].push(time(i-1,1)[0]);
-				A['finish'].push(time(1,i-1)[1]);
-			} else if (M[i]>210){
-				var name1 = get_lesson_name(M[i], group_id, day);
-				A['name'].push(name1);
-				A['start'].push(time(i-1,1)[0]);
-				A['finish'].push(time(1,i-1)[1]);
-			}
-		}
-		
-		if(M[i]!=0 && M[i]!=M[i-1] && M[i]==M[i+1]){
-			if(M[i]>200&&M[i]<=210){
-				var name1 = get_lesson_name(M[i], group_id, day);
-				A['name'].push(name1);
-				A['start'].push(time(i-1,1)[0]);
-			} else if (M[i]>210){
-				var name1 = get_lesson_name(M[i], group_id, day);
-				A['name'].push(name1);
-				A['start'].push(time(i-1,1)[0]);
-			}
-		}
-		if(M[i]!=0 && M[i]==M[i-1] && M[i]!=M[i+1]){
-			A['finish'].push(time(1,i-1)[1]);
-		}
+	var name = '';
+	if(id>210){
+		var online_task = get_online(login,pass,id);
+		name=online_task[4];
+	} else if (id>200&&id<210){
+		name = get_lesson_name(id, group_id, day);
+	} else {
+		name = 'yet undefined';
 	}
-	A['name'].pop();
-	A['start'].pop();
-	console.log(A);
-	var V=[];
-	for (var i=0; i<=A['name'].length;i++){
-		V.push(A['name'][i]);
-		V.push(A['start'][i]);
-		V.push(A['finish'][i]);
-	}
-	console.log(V);
-	V.pop();V.pop();V.pop();
-	var V1 = [];
-	var temp = [];
-	for (var i=0; i < V.length/3; i++){
-		temp.push(V[3*i]);
-		temp.push(V[3*i+1]);
-		temp.push(V[3*i+2]);
-		V1.push(temp);
-		temp = [];
-	}
-	return V1;
+	return name;
 }
