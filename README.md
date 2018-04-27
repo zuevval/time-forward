@@ -5,4 +5,5 @@ OK Stop project for beCoder 2018 <br>
 **Описание js-функций в папке javascript в файле "описание функций"** <br>
 Страница db_calls.html служит только для проверки db_calls.js <br>
 Файл db_calls_test тоже только для проверки<br>
+Для проверки также служат dbCalls2Test.js, dbCalls2.html (документация в dbCalls2_doc.txt в папке javascript)<br>
 файл .sql - база данных. Понадобится вам после установки OpenServer
