@@ -1,9 +1,9 @@
 <?php
 //requires php 5.x
 $db_host = 'localhost';
-$db_user = 'root';
-$db_pwd = '';
-$database = 'time-forward';
+$db_user = 'zuevzuevva';
+$db_pwd = 'verystrongpass';
+$database = 'zuevzuevva';
 echo json_encode(0);	
 if (!mysql_connect($db_host, $db_user, $db_pwd))
     die('|error*cant connect to db|');
