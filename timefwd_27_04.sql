@@ -1,22 +1,20 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.7
--- https://www.phpmyadmin.net/
+-- version 4.0.10.10
+-- http://www.phpmyadmin.net
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Апр 13 2018 г., 21:20
--- Версия сервера: 5.6.38
--- Версия PHP: 5.5.38
+-- Время создания: Апр 27 2018 г., 10:33
+-- Версия сервера: 5.5.45
+-- Версия PHP: 5.3.29
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
+/*!40101 SET NAMES utf8 */;
 
 --
 -- База данных: `time-forward`
@@ -28,7 +26,7 @@ SET time_zone = "+00:00";
 -- Структура таблицы `grp_136322_timetable`
 --
 
-CREATE TABLE `grp_136322_timetable` (
+CREATE TABLE IF NOT EXISTS `grp_136322_timetable` (
   `day` int(11) NOT NULL,
   `id_1` int(11) NOT NULL,
   `start_1` int(11) NOT NULL,
@@ -66,7 +64,7 @@ INSERT INTO `grp_136322_timetable` (`day`, `id_1`, `start_1`, `stop_1`, `id_2`, 
 -- Структура таблицы `users`
 --
 
-CREATE TABLE `users` (
+CREATE TABLE IF NOT EXISTS `users` (
   `login` text NOT NULL,
   `pass` text NOT NULL,
   `user_id` int(11) NOT NULL,
@@ -86,7 +84,7 @@ INSERT INTO `users` (`login`, `pass`, `user_id`, `group_id`) VALUES
 -- Структура таблицы `usr_1_online`
 --
 
-CREATE TABLE `usr_1_online` (
+CREATE TABLE IF NOT EXISTS `usr_1_online` (
   `id` int(11) NOT NULL,
   `day_deadline` int(11) NOT NULL,
   `min_time` int(11) NOT NULL,
@@ -108,7 +106,7 @@ INSERT INTO `usr_1_online` (`id`, `day_deadline`, `min_time`, `max_time`, `name`
 -- Структура таблицы `usr_1_raw`
 --
 
-CREATE TABLE `usr_1_raw` (
+CREATE TABLE IF NOT EXISTS `usr_1_raw` (
   `day` int(11) NOT NULL,
   `event_id` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -127,7 +125,7 @@ INSERT INTO `usr_1_raw` (`day`, `event_id`) VALUES
 -- Структура таблицы `usr_1_raw_events`
 --
 
-CREATE TABLE `usr_1_raw_events` (
+CREATE TABLE IF NOT EXISTS `usr_1_raw_events` (
   `day` int(11) NOT NULL,
   `id_1` int(11) NOT NULL,
   `start_1` int(11) NOT NULL,
@@ -181,7 +179,7 @@ INSERT INTO `usr_1_raw_events` (`day`, `id_1`, `start_1`, `stop_1`, `id_2`, `sta
 -- Структура таблицы `usr_1_schedule`
 --
 
-CREATE TABLE `usr_1_schedule` (
+CREATE TABLE IF NOT EXISTS `usr_1_schedule` (
   `day` int(11) NOT NULL,
   `name_1` text NOT NULL,
   `start_1` int(11) NOT NULL,
@@ -228,7 +226,6 @@ CREATE TABLE `usr_1_schedule` (
 INSERT INTO `usr_1_schedule` (`day`, `name_1`, `start_1`, `stop_1`, `name_2`, `start_2`, `stop_2`, `name_3`, `start_3`, `stop_3`, `name_4`, `start_4`, `stop_4`, `name_5`, `start_5`, `stop_5`, `name_6`, `start_6`, `stop_6`, `name_7`, `start_7`, `stop_7`, `name_8`, `start_8`, `stop_8`, `name_9`, `start_9`, `stop_9`, `name_10`, `start_10`, `stop_10`, `name_11`, `start_11`, `stop_11`, `name_12`, `start_12`, `stop_12`) VALUES
 (0, 'история', 120, 140, 'матмоделирование', 144, 164, 'физкультура', 168, 188, '-1', -1, -1, '-1', -1, -1, '-1', -1, -1, '-1', -1, -1, '-1', -1, -1, '-1', -1, -1, '-1', -1, -1, '-1', -1, -1, '-1', -1, -1),
 (1, 'история', 120, 140, 'матмоделирование', 144, 164, 'физкультура', 168, 188, '-1', -1, -1, '-1', -1, -1, '-1', -1, -1, '-1', -1, -1, '-1', -1, -1, '-1', -1, -1, '-1', -1, -1, '-1', -1, -1, '-1', -1, -1);
-COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
