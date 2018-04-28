@@ -76,7 +76,7 @@ li {
 	margin-top: 50px;
 	border-collapse: collapse;
 }
-th, td {
+.table_1 th, td {
 	text-align: center;
 	border: 1.5px solid black;
 	padding-left: 0.5em;
